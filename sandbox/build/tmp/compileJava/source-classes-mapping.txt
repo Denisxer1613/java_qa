@@ -1,2 +1,2 @@
-MyFirstProgram.java
- MyFirstProgram
+qa/sandbox/MyFirstProgram.java
+ qa.sandbox.MyFirstProgram
