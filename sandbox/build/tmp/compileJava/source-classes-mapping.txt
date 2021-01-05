@@ -1,2 +1,6 @@
+qa/sandbox/Square.java
+ qa.sandbox.Square
+qa/sandbox/Rectangle.java
+ qa.sandbox.Rectangle
 qa/sandbox/MyFirstProgram.java
  qa.sandbox.MyFirstProgram

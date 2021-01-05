@@ -1,0 +1,2 @@
+qa/betboom/regTest1.java
+ qa.betboom.regTest1
