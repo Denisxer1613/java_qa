@@ -25,36 +25,21 @@ public class FirstTest {
     driver = new ChromeDriver();
     js = (JavascriptExecutor) driver;
     vars = new HashMap<String, Object>();
-  }
-//  @After
-//  public void tearDown() {
-//    driver.quit();
-//  }
-  @Test
-  public void RegTest() {
     driver.get("https://bboncyp-onl-1.bb-online-stage.com/");
     driver.manage().window().setSize(new Dimension(1920, 1080));
+  }
+  @Test
+  public void regTest() {
     driver.findElement(By.cssSelector("#header > nav > div > div.nav__right > div > a.auth__btn.btn.btn--secondary.js-login-trigger.js-gtm-click-login-header")).click();
     driver.findElement(By.id("login_input")).click();
-//    driver.findElement(By.cssSelector(".authlinks__btn > span:nth-child(1)")).click();
-//    driver.findElement(By.id("login_input")).click();
-//    driver.findElement(By.id("login_input")).click();
-//    {
-//      WebElement element = driver.findElement(By.id("login_input"));
-//      Actions builder = new Actions(driver);
-//      builder.doubleClick(element).perform();
-//    }
-//    driver.findElement(By.id("login_input")).click();
     driver.findElement(By.id("login_input")).sendKeys("9061112233");
-//    driver.findElement(By.cssSelector(".js-login-popup form")).click();
     driver.findElement(By.id("log_pass_input")).click();
-//    driver.findElement(By.id("log_pass_input")).click();
-//    {
-//      WebElement element = driver.findElement(By.id("log_pass_input"));
-//      Actions builder = new Actions(driver);
-//      builder.doubleClick(element).perform();
-//    }
     driver.findElement(By.id("log_pass_input")).sendKeys("12345678");
     driver.findElement(By.cssSelector(".form-group:nth-child(4) > .btn--primary")).click();
+  }
+
+  @After
+  public void tearDown() {
+    driver.quit();
   }
 }
