@@ -7,9 +7,9 @@ public class FirstTest extends TestBase {
 
   @Test
   public void regTest() {
-    app.findAuthButton();
-    app.fillForm("9061112233", "12345678");
-    app.sendForm();
+    app.getLoginHelper().findAuthButton();
+    app.getLoginHelper().fillForm("9061112233", "12345678");
+    app.getLoginHelper().sendForm();
   }
 
 }
