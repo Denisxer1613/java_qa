@@ -8,7 +8,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class ApplicationManager {
-  
+
   private final LoginHelper loginHelper = new LoginHelper();
   JavascriptExecutor js;
   private Map<String, Object> vars;
