@@ -14,7 +14,7 @@ public class ApplicationManager {
   private Map<String, Object> vars;
 
   public void init() {
-    System.setProperty("webdriver.chrome.driver", "C:\\java_qa\\chromedriver\\chromedriver.exe");
+    System.setProperty("webdriver.chrome.driver", "C:\\Users\\d_podoinikov\\Documents\\java_qa\\chromedriver\\chromedriver.exe");
     loginHelper.driver = new ChromeDriver();
     js = (JavascriptExecutor) loginHelper.driver;
     vars = new HashMap<String, Object>();
