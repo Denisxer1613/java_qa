@@ -26,6 +26,7 @@ public class ApplicationManager {
     loginHelper.driver.manage().window().setSize(new Dimension(1920, 1080));
   }
 
+
   public void stop() {
     loginHelper.driver.quit();
   }
