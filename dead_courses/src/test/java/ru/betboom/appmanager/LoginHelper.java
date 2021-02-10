@@ -28,7 +28,7 @@ import java.net.MalformedURLException;
 import java.net.URL;
 
 public class LoginHelper {
-    ChromeDriver driver;
+    WebDriver driver;
 
   public void findAuthButton() {
     driver.findElement(By.cssSelector("#header > nav > div > div.nav__right > div > a.auth__btn.btn.btn--secondary.js-login-trigger.js-gtm-click-login-header")).click();
