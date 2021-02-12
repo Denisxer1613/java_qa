@@ -7,7 +7,7 @@ import ru.betboom.appmanager.ApplicationManager;
 
 public class TestBase {
 
-  protected final ApplicationManager app = new ApplicationManager(BrowserType.FIREFOX);
+  protected final ApplicationManager app = new ApplicationManager(BrowserType.CHROME);
 
   @Before
   public void setUp() {

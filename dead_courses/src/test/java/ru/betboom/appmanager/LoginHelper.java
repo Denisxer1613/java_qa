@@ -19,6 +19,7 @@ import org.openqa.selenium.Dimension;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.Alert;
@@ -46,17 +47,13 @@ public class LoginHelper {
   }
 
   public void openPaymentsPage() {
-//    driver.manage().timeouts().implicitlyWait(15, TimeUnit.SECONDS);
-//    driver.findElement(By.cssSelector(".js-alertbar-msg-flash > .icon")).click();
-//    driver.findElement(By.cssSelector(".account-menu:nth-child(2) > .account-menu__item:nth-child(1) .account-menu__title")).click();
-    driver.manage().timeouts().implicitlyWait(15, TimeUnit.SECONDS);
-//    WebDriverWait wait2 = new WebDriverWait(driver, 10);
-//    wait2.until(ExpectedConditions.invisibilityOfElementLocated(By.cssSelector(".account-menu:nth-child(2) > .account-menu__item:nth-child(1) .account-menu__title")));
-//    driver.findElement(By.cssSelector(".account-menu:nth-child(2) > .account-menu__item:nth-child(1) .account-menu__title")).click();
+    driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
     driver.findElement(By.cssSelector(".js-alertbar-msg-flash > .icon")).click();
-    WebElement ele = driver.findElement(By.cssSelector(".account-menu:nth-child(2) > .account-menu__item:nth-child(1) .account-menu__title"));
-    JavascriptExecutor executor = (JavascriptExecutor)driver;
-    executor.executeScript("arguments[0].click();", ele);
+    driver.findElement(By.xpath("/html/body/header/nav/div/div[3]/div[3]/div/a")).click();
+//    driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
+//    JavascriptExecutor executor = (JavascriptExecutor)driver;
+//    executor.executeScript("arguments[0].click();", ele);
+    driver.findElement(By.className("account-menu__title")).click();
   }
 
   public void qiwiPay(String amount) {
