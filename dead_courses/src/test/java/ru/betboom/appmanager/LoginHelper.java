@@ -1,32 +1,10 @@
 package ru.betboom.appmanager;
 
 import org.openqa.selenium.By;
-import org.openqa.selenium.chrome.ChromeDriver;
-import java.util.concurrent.TimeUnit;
-import org.junit.Test;
-import org.junit.Before;
-import org.junit.After;
-import static org.junit.Assert.*;
-import static org.hamcrest.CoreMatchers.is;
-import static org.hamcrest.core.IsNot.not;
-import org.openqa.selenium.By;
+import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.firefox.FirefoxDriver;
-import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.remote.RemoteWebDriver;
-import org.openqa.selenium.remote.DesiredCapabilities;
-import org.openqa.selenium.Dimension;
-import org.openqa.selenium.WebElement;
-import org.openqa.selenium.interactions.Actions;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.Select;
-import org.openqa.selenium.support.ui.WebDriverWait;
-import org.openqa.selenium.JavascriptExecutor;
-import org.openqa.selenium.Alert;
-import org.openqa.selenium.Keys;
-import java.util.*;
-import java.net.MalformedURLException;
-import java.net.URL;
+
+import java.util.concurrent.TimeUnit;
 
 public class LoginHelper {
     WebDriver driver;
@@ -48,12 +26,15 @@ public class LoginHelper {
 
   public void openPaymentsPage() {
     driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
-    driver.findElement(By.cssSelector(".js-alertbar-msg-flash > .icon")).click();
-    driver.findElement(By.xpath("/html/body/header/nav/div/div[3]/div[3]/div/a")).click();
+    if (isElementPresent(By.cssSelector(".js-alertbar-msg-flash > .icon"))) {
+      driver.findElement(By.cssSelector(".js-alertbar-msg-flash > .icon")).click();
+    }
+    driver.navigate().to("https://bboncyp-newapp.bb-online-stage.com/lobby/payinpayout");
+//      driver.findElement(By.name("icon icon-account icon--white")).click();
 //    driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
 //    JavascriptExecutor executor = (JavascriptExecutor)driver;
 //    executor.executeScript("arguments[0].click();", ele);
-    driver.findElement(By.className("account-menu__title")).click();
+//      driver.findElement(By.className("account-menu__title")).click();
   }
 
   public void qiwiPay(String amount) {
@@ -63,4 +44,37 @@ public class LoginHelper {
     driver.findElement(By.cssSelector(".js-payin-form-qiwi .btn")).click();
     driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
   }
+
+  public void openPayOutPage() {
+    driver.findElement(By.linkText("Выплата")).click();
+
+  }
+
+  public void openQiwiPayOutService() {
+    driver.findElement(By.xpath("//*[@id=\"content\"]/div/div/div/div/div/div/div[2]/div[2]/div/div[1]/ul/li[2]")).click();
+  }
+
+  public void payOutMoneyQiwi(String amount, String smsCode) {
+    driver.findElement(By.cssSelector("#accountQiwiTab > form > fieldset > div")).click();
+    driver.findElement(By.cssSelector(".js-payout-form-qiwi #sum")).sendKeys(amount);
+    driver.findElement(By.cssSelector("#accountQiwiTab > form > div.payinout__btns > button")).click();
+    driver.findElement(By.id("sms_code")).click();
+    driver.findElement(By.id("sms_code")).sendKeys(smsCode);
+    driver.findElement(By.cssSelector("#accountQiwiTab > form > div.payinout__btns > button")).click();
+  }
+
+  public void succesOrFail() {
+    if (isElementPresent(By.id("payoutSuccessTab"))) {
+      return;
+  }
 }
+
+  private boolean isElementPresent(By payoutSuccessTab) {
+    try {
+      driver.findElement(payoutSuccessTab);
+      return true;
+    } catch (NoSuchElementException ex) {
+      return false;
+    }
+  }
+  }

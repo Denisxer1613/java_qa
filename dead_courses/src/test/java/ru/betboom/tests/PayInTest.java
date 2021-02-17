@@ -2,7 +2,7 @@ package ru.betboom.tests;
 
 import org.junit.Test;
 
-public class PaymentsTest extends TestBase {
+public class PayInTest extends TestBase {
 
     @Test
     public void paymentsTest() {

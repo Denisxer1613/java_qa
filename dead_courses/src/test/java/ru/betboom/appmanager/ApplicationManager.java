@@ -43,7 +43,7 @@ public class ApplicationManager {
 
   private void openSite() {
     loginHelper.driver.get("https://bboncyp-newapp.bb-online-stage.com/");
-    loginHelper.driver.manage().window().setSize(new Dimension(1920, 1080));
+    loginHelper.driver.manage().window().maximize();
   }
 
 
